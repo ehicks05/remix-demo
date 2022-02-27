@@ -8,13 +8,15 @@
     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
     "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
-    "postinstall": "remix setup node"
+    "postinstall": "remix setup node",
+    "seed": "npx ts-node ./scripts/seed.tsx"
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@remix-run/react": "^1.0.6",
     "@remix-run/serve": "^1.0.6",
     "@remix-run/vercel": "^1.0.6",
+    "edgedb": "^0.19.8",
     "formik": "^2.2.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
