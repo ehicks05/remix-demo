@@ -114,8 +114,8 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+      <body className="h-screen dark:bg-neutral-900">
+        <div className="h-screen">{children}</div>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
