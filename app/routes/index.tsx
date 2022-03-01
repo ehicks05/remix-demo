@@ -7,11 +7,6 @@ import RecipePicker from "~/components/Home/RecipePicker";
 import e from "../../dbschema/edgeql-js";
 import { client } from "../edgedb.server";
 
-type IndexData = {
-  resources: Array<{ name: string; url: string }>;
-  demos: Array<{ name: string; to: string }>;
-};
-
 // Loaders provide data to components and are only ever called on the server, so
 // you can connect to a database or run any server side code you want right next
 // to the component that renders it.
@@ -26,12 +21,19 @@ export let loader: LoaderFunction = async () => {
     difficulty: true,
     servings: true,
     course: true,
+    createdAt: true,
+    updatedAt: true,
     author: { auth_id: true, displayName: true },
     // ingredients: true,
     ingredients: { id: true, name: true, quantity: true, unit: true },
     test: e.count(recipe.ingredients),
     steps: { i: true, text: true },
     // filter: e.op(recipe.name, "ilike", "Chuck Stew"),
+    order_by: {
+      expression: recipe.createdAt,
+      direction: e.DESC,
+      empty: e.EMPTY_LAST,
+    },
   }));
   const data = (await query.run(client)).map((r) => ({
     ...r,

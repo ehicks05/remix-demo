@@ -18,7 +18,7 @@ function RecipeCard({
 
   return (
     <Link to={`/recipes/${id}`}>
-      <Card className="hover:shadow-2xl transform transition-all hover:scale-105">
+      <Card className="hover:shadow-2xl transform transition-all hover:scale-103">
         <div className="flex flex-col gap-4 h-56">
           <div className="flex gap-2">
             <figure className="w-16 h-16 text-5xl pt-2">{emoji}</figure>

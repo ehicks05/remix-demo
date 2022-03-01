@@ -9,6 +9,8 @@ module default {
     required property difficulty -> int16;
     required property servings -> int16;
     required property course -> str;
+    required property createdAt -> datetime;
+    required property updatedAt -> datetime;
 
     required link author -> User;
     multi link ingredients -> Ingredient;
