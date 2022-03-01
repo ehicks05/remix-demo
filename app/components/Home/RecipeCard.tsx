@@ -17,7 +17,7 @@ function RecipeCard({
   const { user, favoriteIds, fetchFavoriteIds } = useContext(UserContext);
 
   return (
-    <Link to={`/recipe/${id}`}>
+    <Link to={`/recipes/${id}`}>
       <Card className="hover:shadow-2xl transform transition-all hover:scale-105">
         <div className="flex flex-col gap-4 h-56">
           <div className="flex gap-2">

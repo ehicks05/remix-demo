@@ -1,3 +1,5 @@
+using extension graphql;
+
 module default {
   type Recipe {
     required property name -> str;
@@ -9,8 +11,8 @@ module default {
     required property course -> str;
 
     required link author -> User;
-    required multi link ingredients -> Ingredient;
-    required multi link steps -> Step;
+    multi link ingredients -> Ingredient;
+    multi link steps -> Step;
   }
 
   type User {
