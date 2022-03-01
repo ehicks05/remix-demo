@@ -27,6 +27,10 @@ export let links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: styles },
     { rel: "icon", href: "/favicon/favicon.png" },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Ubuntu&display=swap",
+    },
   ];
 };
 

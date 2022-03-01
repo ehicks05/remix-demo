@@ -33,7 +33,7 @@ function RecipeCard({
           <T className="line-clamp-5">{description}</T>
         </div>
 
-        <footer className="flex pt-4 border-t border-opacity-25">
+        <footer className="flex pt-4 border-t border-gray-500 border-opacity-25">
           <div className="flex gap-2 justify-center items-center w-full">
             <div>
               <FcClock size="2em" />
