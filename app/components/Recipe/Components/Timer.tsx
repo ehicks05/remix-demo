@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Button from '../../../components/Button';
+import React, { useEffect, useRef, useState } from "react";
+import Button from "../../../components/Button";
 
 interface IProps {
   minutes: number;
@@ -54,8 +54,8 @@ function Timer({ minutes: inputMinutes }: IProps) {
       return;
     }
     const { value } = e.target;
-    if (value.indexOf(':') === -1) return;
-    const [m, s] = value.split(':').map(it => Number(it));
+    if (value.indexOf(":") === -1) return;
+    const [m, s] = value.split(":").map((it) => Number(it));
     if (Number.isNaN(m) || Number.isNaN(s)) return;
     setSeconds(Math.min(m * 60 + s, 999 * 60 + 59));
   }
@@ -65,15 +65,15 @@ function Timer({ minutes: inputMinutes }: IProps) {
       <input
         type="text"
         className={`px-2 py-1 text-xs text-center bg-neutral-100 dark:bg-neutral-500 dark:text-neutral-200 ${
-          expired ? 'bg-red-700' : ''
+          expired ? "bg-red-700" : ""
         }`}
-        size={Math.max(displayTime().length - 4, 1)}
+        size={Math.max(displayTime().length, 1)}
         value={displayTime()}
         onChange={handleSetTime}
       />
       {!expired && (
         <Button className="text-xs" onClick={() => setPaused(!paused)}>
-          {paused ? 'Start' : 'Pause'}
+          {paused ? "Start" : "Pause"}
         </Button>
       )}
 

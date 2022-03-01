@@ -24,7 +24,6 @@ export let loader: LoaderFunction = async () => {
     createdAt: true,
     updatedAt: true,
     author: { auth_id: true, displayName: true },
-    // ingredients: true,
     ingredients: { id: true, name: true, quantity: true, unit: true },
     test: e.count(recipe.ingredients),
     steps: { i: true, text: true },
@@ -35,10 +34,7 @@ export let loader: LoaderFunction = async () => {
       empty: e.EMPTY_LAST,
     },
   }));
-  const data = (await query.run(client)).map((r) => ({
-    ...r,
-    cookingTime: r.totalTime.minutes,
-  }));
+  const data = await query.run(client);
 
   // https://remix.run/api/remix#json
   return json(data);

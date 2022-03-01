@@ -4,7 +4,7 @@ interface IRecipe {
   description: string;
   emoji: string;
   servings: number;
-  cookingTime: string;
+  totalTime: string;
   difficulty: number;
   course: string;
   ingredients: IIngredient[];

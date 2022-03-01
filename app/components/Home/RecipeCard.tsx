@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FcClock } from "react-icons/fc";
+import td from "tinyduration";
 import { IRecipe } from "~/types/types";
 import Card from "../Card";
 import FavoriteButton from "../FavoriteButton";
@@ -12,7 +13,7 @@ interface IRecipeCardProps {
 }
 
 function RecipeCard({
-  recipe: { id, emoji, name, author, description, cookingTime },
+  recipe: { id, emoji, name, author, description, totalTime },
 }: IRecipeCardProps) {
   const { user, favoriteIds, fetchFavoriteIds } = useContext(UserContext);
 
@@ -39,7 +40,7 @@ function RecipeCard({
               <FcClock size="2em" />
             </div>
             <div className="font-semibold dark:text-neutral-200">
-              {cookingTime}
+              {td.parse(totalTime).minutes}
             </div>
           </div>
           <div className="flex gap-2 justify-center items-center w-full">
