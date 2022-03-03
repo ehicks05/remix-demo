@@ -52,7 +52,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document title="Error!">
       <Layout>
-        <div>
+        <div className="h-full flex flex-col items-center justify-center bg-red-900 text-white">
           <h1>There was an error</h1>
           <p>{error.message}</p>
           <hr />
@@ -93,10 +93,12 @@ export function CatchBoundary() {
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
       <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
-        {message}
+        <div className="h-full flex flex-col items-center justify-center bg-red-900 text-white">
+          <h1 className="text-3xl">
+            {caught.status}: {caught.statusText}
+          </h1>
+          {message}
+        </div>
       </Layout>
     </Document>
   );
